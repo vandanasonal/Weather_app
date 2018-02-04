@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+  </head>
+  <body>
+      
+      <nav class="navbar navbar-dark">
+         <h1 class= "text-white head">Know Your Weather !!</h1>
+       </nav
+    
+      <div class= "container">
+          <div class="row">
+               <div style=" margin: 25px auto;" class="form-input">
+                  <form action="/" method="POST">
+                      <div class="form-row align-items-center form-group">
+                        <div class="col-auto my-1">
+                         
+                          <select id="city" name="city" class="form-control-lg" required>
+                            <option value="Default">Choose City!!</option>  
+                            <option value="Agra">Agra</option>
+                            <option value="Bengaluru">Bengaluru</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Gurgaon">Gurgaon</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="New Delhi">New Delhi</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Surat">Surat</option>
+                          </select>
+                        </div> 
+                        <!--<div class="col-auto my-1">-->
+                        <!--  <label class="col-form-label" for="time">Select Time..</label>-->
+                        <!--   <input id="time" type="time" name= "time">-->
+                        <!--  </select>-->
+                        <!--</div>-->
+                        
+                        <div class="col-auto my-1">
+                          <button type="submit" class="btn btn-lg submit">Get Weather!</button>
+                        </div>
+                      </div>
+                    </form>
+                    <% if(locals.weather !== null){ %>
+                       
+                    <div style="width: 30%; margin: 25px auto;" class="show">
+                        <p class="display">Current Temp : <%= weather[0] %>°C</p>
+                         <p class="display">Min. temp : <%= weather[1] %>°C</p>
+                         <p class="display">Max. Temp : <%= weather[2] %>°C</p>
+                         <p class="display"> Humidity : <%= weather[3] %>%</p>
+                         <p class="display"> Wind Speed : <%= weather[4] %> m/s</p>
+                      <% } else { %>
+                       <p>Try Again</p>
+                       </div>
+                       <% } %>
+                      <% if(error !== null){ %>
+                          <p><%= error %></p>
+                        <% } %>
+              </div>
+            </div>
+          
+      </div>
+</html>
